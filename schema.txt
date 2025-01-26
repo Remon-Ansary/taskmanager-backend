@@ -1,0 +1,35 @@
+-- 1. Create Users Table
+CREATE TABLE Users (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
+);
+
+-- 2. Create Tasks Table
+CREATE TABLE Tasks (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    status VARCHAR(50) NOT NULL CHECK (status IN ('Pending', 'In Progress', 'Completed')),
+    due_date DATE NOT NULL,
+    created_at TIMESTAMP WITHOUT TIME ZONE DEFAULT (NOW() AT TIME ZONE 'UTC') NOT NULL,
+    user_id INTEGER NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES Users(id) ON DELETE CASCADE
+);
+
+-- 3. SQL Query to Get Count of Tasks for Each Status Grouped by User
+SELECT 
+    u.id AS user_id,
+    u.name AS user_name,
+    t.status,
+    COUNT(t.id) AS task_count
+FROM 
+    Users u
+LEFT JOIN 
+    Tasks t ON u.id = t.user_id
+GROUP BY 
+    u.id, u.name, t.status
+ORDER BY 
+    u.id, 
+    t.status;
