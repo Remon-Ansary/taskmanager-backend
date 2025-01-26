@@ -6,12 +6,18 @@ A Django REST Framework-based backend for the Task Manager application. It provi
 
 - Task Management: Create, view, edit, delete, and filter tasks
 - Overdue Tasks: Retrieve tasks that are past their due date
+- Pagination: Display tasks in paginated form
 - Docker Support: Easy setup and deployment using Docker and Docker Compose
   
 
 ## Database Design and Sql Query: PostgreSQL
 
-You can find the database design in schema.txt file
+- You can find the database design in schema.txt file
+
+
+## Nginx
+
+- The Nginx configuration file is located in the nginxfile.txt file
 
 ## API Endpoints
 ### Tasks
