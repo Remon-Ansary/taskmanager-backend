@@ -14,12 +14,12 @@ A Django REST Framework-based backend for the Task Manager application. It provi
 
 - You can find the database design in schema.txt file
 
-
 ## Nginx
 
 - The Nginx configuration file is located in the nginxfile.txt file
 
 ## API Endpoints
+
 ### Tasks
 - **List Tasks:** `GET /api/tasks/`
   - *Filters:* `status` (e.g., `/api/tasks/?status=Pending`)
@@ -55,7 +55,6 @@ A Django REST Framework-based backend for the Task Manager application. It provi
 
 3. Install Dependencies
    ```bash
-   pip install --upgrade pip
    pip install -r requirements.txt
    ```
 
