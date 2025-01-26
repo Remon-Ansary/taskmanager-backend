@@ -1,13 +1,27 @@
 # Task Manager Backend
 
-A Django REST Framework-based backend for the Task Manager application. It provides APIs for user authentication and task management, including creating, retrieving, updating, deleting, and filtering tasks.
+A Django REST Framework-based backend for the Task Manager application. It provides APIs for task management, including creating, retrieving, updating, deleting, and filtering tasks.
 
 ## Features
 
-- User Authentication: Register, login, and logout users
 - Task Management: Create, view, edit, delete, and filter tasks
 - Overdue Tasks: Retrieve tasks that are past their due date
 - Docker Support: Easy setup and deployment using Docker and Docker Compose
+  
+
+## Database Design and Sql Query: PostgreSQL
+
+You can find the database design in schema.txt file
+
+## API Endpoints
+### Tasks
+- **List Tasks:** `GET /api/tasks/`
+  - *Filters:* `status` (e.g., `/api/tasks/?status=Pending`)
+- **Create Task:** `POST /api/tasks/`
+- **Retrieve Task:** `GET /api/tasks/{id}/`
+- **Update Task:** `PUT /api/tasks/{id}/`
+- **Delete Task:** `DELETE /api/tasks/{id}/`
+- **Overdue Tasks:** `GET /api/tasks/overdue/`
 
 ## Technologies Used
 
@@ -16,16 +30,6 @@ A Django REST Framework-based backend for the Task Manager application. It provi
 - PostgreSQL
 - Gunicorn
 - Docker
-- Docker Compose
-- Nginx (optional)
-
-## Prerequisites
-
-- Python 3.8+
-- pip
-- PostgreSQL (if not using Docker)
-- Docker and Docker Compose (optional)
-- Git
 
 ## Installation
 
@@ -60,15 +64,6 @@ A Django REST Framework-based backend for the Task Manager application. It provi
    ```
    Access the API at `http://localhost:8000/api/`
 
-## API Endpoints
-### Tasks
-- **List Tasks:** `GET /api/tasks/`
-  - *Filters:* `status` (e.g., `/api/tasks/?status=Pending`)
-- **Create Task:** `POST /api/tasks/`
-- **Retrieve Task:** `GET /api/tasks/{id}/`
-- **Update Task:** `PUT /api/tasks/{id}/`
-- **Delete Task:** `DELETE /api/tasks/{id}/`
-- **Overdue Tasks:** `GET /api/tasks/overdue/`
 
 ## Docker Setup
 
